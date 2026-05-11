@@ -1,0 +1,16 @@
+sudo vi /etc/systemd/system/microapp.service
+
+
+[Unit]
+Description=Microapp Flask Application
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/aws-ecommerce-otp-authentication/backend
+Environment="PATH=/root/aws-ecommerce-otp-authentication/backend/venv/bin"
+ExecStart=/root/aws-ecommerce-otp-authentication/backend/venv/bin/python app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
